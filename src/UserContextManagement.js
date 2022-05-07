@@ -9,7 +9,7 @@ export const UserContext = React.createContext({
   activityMultiplier: '',
   weightGainPercentage: '',
   weightLossPercentage: '',
-  protMultipler: '',
+  protMultiplier: '',
   lipMultiplier: '',
   maintenance: 0,
   weightGainObjective: 0,
@@ -33,7 +33,7 @@ export const UserContextProvider = ({children}) => {
   const [activityMultiplier, setActivityMultiplier] = useState('');
   const [weightGainPercentage, setWeightGainPercentage] = useState('');
   const [weightLossPercentage, setWeightLossPercentage] = useState('');
-  const [protMultipler, setProtMultiplier] = useState('');
+  const [protMultiplier, setProtMultiplier] = useState('');
   const [lipMultiplier, setLipMultiplier] = useState('');
   const [maintenance, setMaintenance] = useState(0);
   const [weightGainObjective, setWeightGainObjective] = useState(0);
@@ -57,7 +57,7 @@ export const UserContextProvider = ({children}) => {
     activityMultiplier,
     weightGainPercentage,
     weightLossPercentage,
-    protMultipler,
+    protMultiplier,
     lipMultiplier,
     maintenance,
     weightGainObjective,

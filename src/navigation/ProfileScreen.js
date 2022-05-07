@@ -41,7 +41,7 @@ const ProfileScreen = () => {
         />
         <NumberInput
           label="Coefficient Protéines"
-          value={user.protMultipler || ''}
+          value={user.protMultiplier || ''}
           onChangeText={text => user.setProtMultiplier(text.replace(',', '.'))}
         />
         <NumberInput
