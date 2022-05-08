@@ -2,6 +2,14 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {DataTable} from 'react-native-paper';
 
+import {ObjectiveEntry} from '../types';
+
+type Props = {
+  objective: string;
+  totalKcal: string;
+  entries: ObjectiveEntry[];
+};
+
 const COLUMNS = {
   type: 'TYPE',
   gram: 'G',
@@ -9,7 +17,7 @@ const COLUMNS = {
   totalKcalPercentage: '% kcal total',
 };
 
-const ObjectiveTable = props => {
+const ObjectiveTable: React.FC<Props> = props => {
   return (
     <View>
       <Text>{(props.objective || '') + ' ' + props.totalKcal + ' kcal'}</Text>

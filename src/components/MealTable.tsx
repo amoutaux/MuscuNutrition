@@ -1,6 +1,12 @@
 import React from 'react';
 import {DataTable} from 'react-native-paper';
 
+import {MealEntry} from '../types';
+
+type Props = {
+  entries: MealEntry[];
+};
+
 const COLUMNS = {
   aliment: 'ALIMENT',
   quantity: 'QTT',
@@ -10,7 +16,7 @@ const COLUMNS = {
   kcal: 'KCAL',
 };
 
-const MealTable = props => {
+const MealTable: React.FC<Props> = props => {
   return (
     <DataTable>
       <DataTable.Header>

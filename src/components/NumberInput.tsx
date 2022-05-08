@@ -3,8 +3,14 @@ import {View, Text, TextInput} from 'react-native';
 
 import styles from '../styles/NumberInput.style';
 
-const NumberInput = props => {
-  const [isValid, setIsValid] = useState(true);
+type Props = {
+  value: string;
+  label: string;
+  unit: string;
+}
+
+const NumberInput: React.FC<Props> = props => {
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   useEffect(() => {
     /^\d+[.,]?\d*$/.test(props.value) ? setIsValid(true) : setIsValid(false);
