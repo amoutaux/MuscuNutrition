@@ -1,9 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import TabBarNavigator from './TabBarNavigator.js';
-import ProfileScreen from './ProfileScreen.js';
-import ProfileButton from '../components/ProfileButton.js';
+import TabBarNavigator from './TabBarNavigator';
+import ProfileScreen from './ProfileScreen';
+import ProfileButton from '../components/ProfileButton';
 
 const Stack = createNativeStackNavigator();
 

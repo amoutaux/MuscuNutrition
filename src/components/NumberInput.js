@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput} from 'react-native';
 
-import styles from '../styles/NumberInput.style.js';
+import styles from '../styles/NumberInput.style';
 
 const NumberInput = props => {
   const [isValid, setIsValid] = useState(true);

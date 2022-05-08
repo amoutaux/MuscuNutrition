@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {UserContextProvider} from './src/UserContextManagement.js';
-import RootStackNavigator from './src/navigation/RootStackNavigator.js';
+import {UserContextProvider} from './src/UserContextManagement';
+import RootStackNavigator from './src/navigation/RootStackNavigator';
 
 const App = () => {
   return (

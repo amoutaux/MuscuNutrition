@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import {View} from 'react-native';
 
-import {UserContext} from '../UserContextManagement.js';
-import ObjectiveTable from '../components/ObjectiveTable.js';
-import {getObjectives} from '../utils.js';
-import styles from '../styles/MealsScreen.style.js';
+import {UserContext} from '../UserContextManagement';
+import ObjectiveTable from '../components/ObjectiveTable';
+import {getObjectives} from '../utils';
+import styles from '../styles/MealsScreen.style';
 
 const MealsScreen = () => {
   const user = useContext(UserContext);

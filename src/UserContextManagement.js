@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {getMaintenance, getWeightGainObjective, getWeightLossObjective} from './utils.js';
+import {getMaintenance, getWeightGainObjective, getWeightLossObjective} from './utils';
 
 // Create empty context
 export const UserContext = React.createContext({

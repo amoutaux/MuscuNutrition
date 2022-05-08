@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {View, Text} from 'react-native';
 
-import {UserContext} from '../UserContextManagement.js';
-import NumberInput from '../components/NumberInput.js';
+import {UserContext} from '../UserContextManagement';
+import NumberInput from '../components/NumberInput';
 
 const ProfileScreen = () => {
   const user = useContext(UserContext);

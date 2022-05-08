@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import MealsScreen from './MealsScreen.js';
-import GraphsScreen from './GraphsScreen.js';
-import FoodScreen from './FoodScreen.js';
+import MealsScreen from './MealsScreen';
+import GraphsScreen from './GraphsScreen';
+import FoodScreen from './FoodScreen';
 
 const Tab = createBottomTabNavigator();
 
