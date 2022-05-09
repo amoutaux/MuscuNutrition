@@ -1,19 +1,21 @@
-export const getMaintenance = (fatPercentage, weightKg, activityMultiplier) =>
+import {ObjectiveEntry} from './types';
+
+export const getMaintenance = (fatPercentage: number, weightKg: number, activityMultiplier: number): number =>
   Math.round((370 + 21.6 * (1 - fatPercentage / 100) * weightKg) * activityMultiplier);
 
-export const getWeightGainObjective = (weightGainPercentage, maintenance) =>
+export const getWeightGainObjective = (weightGainPercentage: number, maintenance: number): number =>
   Math.round((1 + weightGainPercentage / 100) * maintenance);
 
-export const getWeightLossObjective = (weightLossPercentage, maintenance) =>
+export const getWeightLossObjective = (weightLossPercentage: number, maintenance: number): number =>
   Math.round((1 - weightLossPercentage / 100) * maintenance);
 
 export const getObjectives = (
-  protMultiplier,
-  lipMultiplier,
-  fatPercentage,
-  weightKg,
-  totalKcal,
-) => {
+  protMultiplier: number,
+  lipMultiplier: number,
+  fatPercentage: number,
+  weightKg: number,
+  totalKcal: number,
+): ObjectiveEntry[] => {
   const prot_g = protMultiplier * (1 - fatPercentage / 100) * weightKg;
   const prot_kcal = prot_g * 4;
   const lip_g = lipMultiplier * (1 - fatPercentage / 100) * weightKg;
