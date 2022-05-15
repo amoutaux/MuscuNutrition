@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react';
 
 import {UserContextType} from './types';
-import {getMaintenance, getWeightGainObjective, getWeightLossObjective} from './utils.js';
+import {getMaintenance, getWeightGainObjective, getWeightLossObjective} from './utils';
 
 // Create empty context
-export const UserContext = React.createContext<UserContextType | null>(null);
+export const UserContext = React.createContext<UserContextType>({} as UserContextType);
 
 /* Provide children with the UserContext with a value corresponding to the
  state and setState methods of this specific component. The values are thus
  stored high level and can be updated by any child. */
 export type Props = {
   children: React.ReactNode;
-}
+};
 export const UserContextProvider: React.FC<Props> = ({children}) => {
-  const [weightKg, setWeightKg] = useState<string>('');
-  const [fatPercentage, setFatPercentage] = useState<string>('');
-  const [activityMultiplier, setActivityMultiplier] = useState<string>('');
-  const [weightGainPercentage, setWeightGainPercentage] = useState<string>('');
-  const [weightLossPercentage, setWeightLossPercentage] = useState<string>('');
-  const [protMultiplier, setProtMultiplier] = useState<string>('');
-  const [lipMultiplier, setLipMultiplier] = useState<string>('');
-  const [maintenance, setMaintenance] = useState<number>(0);
-  const [weightGainObjective, setWeightGainObjective] = useState<number>(0);
-  const [weightLossObjective, setWeightLossObjective] = useState<number>(0);
+  const [weightKg, setWeightKg] = useState<number | undefined>();
+  const [fatPercentage, setFatPercentage] = useState<number | undefined>();
+  const [activityMultiplier, setActivityMultiplier] = useState<number | undefined>();
+  const [weightGainPercentage, setWeightGainPercentage] = useState<number | undefined>();
+  const [weightLossPercentage, setWeightLossPercentage] = useState<number | undefined>();
+  const [protMultiplier, setProtMultiplier] = useState<number | undefined>();
+  const [lipMultiplier, setLipMultiplier] = useState<number | undefined>();
+  const [maintenance, setMaintenance] = useState<number | undefined>();
+  const [weightGainObjective, setWeightGainObjective] = useState<number | undefined>();
+  const [weightLossObjective, setWeightLossObjective] = useState<number | undefined>();
 
   useEffect(() => {
     setMaintenance(getMaintenance(fatPercentage, weightKg, activityMultiplier));

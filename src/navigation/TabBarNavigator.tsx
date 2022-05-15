@@ -7,7 +7,7 @@ import FoodScreen from './FoodScreen';
 
 const Tab = createBottomTabNavigator();
 
-const TabBarNavigator = () => {
+const TabBarNavigator: React.FC = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="meals" component={MealsScreen} />

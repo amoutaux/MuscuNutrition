@@ -1,36 +1,36 @@
 export interface UserContextType {
-  weightKg: string;
-  fatPercentage: string;
-  activityMultiplier: string;
-  weightGainPercentage: string;
-  weightLossPercentage: string;
-  protMultiplier: string;
-  lipMultiplier: string;
-  maintenance: number;
-  weightGainObjective: number;
-  weightLossObjective: number;
+  weightKg: number | undefined;
+  fatPercentage: number | undefined;
+  activityMultiplier: number | undefined;
+  weightGainPercentage: number | undefined;
+  weightLossPercentage: number | undefined;
+  protMultiplier: number | undefined;
+  lipMultiplier: number | undefined;
+  maintenance: number | undefined;
+  weightGainObjective: number | undefined;
+  weightLossObjective: number | undefined;
 
-  setWeightKg: React.Dispatch<React.SetStateAction<string>>;
-  setFatPercentage: React.Dispatch<React.SetStateAction<string>>;
-  setActivityMultiplier: React.Dispatch<React.SetStateAction<string>>;
-  setWeightGainPercentage: React.Dispatch<React.SetStateAction<string>>;
-  setWeightLossPercentage: React.Dispatch<React.SetStateAction<string>>;
-  setProtMultiplier: React.Dispatch<React.SetStateAction<string>>;
-  setLipMultiplier: React.Dispatch<React.SetStateAction<string>>;
+  setWeightKg: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setFatPercentage: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setActivityMultiplier: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setWeightGainPercentage: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setWeightLossPercentage: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setProtMultiplier: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setLipMultiplier: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
 export interface MealEntry {
   aliment: string;
-  quantity: string;
-  prot: string;
-  lip: string;
-  glu: string;
-  kcal: string;
+  quantity: number;
+  prot: number;
+  lip: number;
+  glu: number;
+  kcal: number;
 }
 
 export interface ObjectiveEntry {
   type: string;
-  gram: string;
-  kcal: string;
-  totalKcalPercentage: string;
+  gram: number;
+  kcal: number;
+  totalKcalPercentage: number;
 }

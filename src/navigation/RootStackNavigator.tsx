@@ -7,13 +7,13 @@ import ProfileButton from '../components/ProfileButton';
 
 const Stack = createNativeStackNavigator();
 
-const RootStackNavigator = () => {
+const RootStackNavigator: React.FC = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="tabBarNavigator"
         component={TabBarNavigator}
-        options={({navigation, route}) => ({
+        options={() => ({
           headerLeft: () => <ProfileButton />,
         })}
       />
