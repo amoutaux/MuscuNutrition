@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 
 import {UserContext} from '../UserContextManagement';
@@ -21,47 +21,98 @@ const _numberToText = (n: number | undefined): string => {
 const ProfileScreen: React.FC = () => {
   const user = useContext(UserContext);
 
+  // We need to store inputs in Profile state since we need strings rather
+  // than integers stored in Usercontext (to display '1.' for example which
+  // happens when a user inputs '1.9')
+  const [weightInput, setWeightInput] = useState(_numberToText(user.weightKg));
+  const [fatPercentageInput, setFatPercentageInput] = useState(_numberToText(user.fatPercentage));
+  const [activityMultiplierInput, setActivityMultiplierInput] = useState(
+    _numberToText(user.activityMultiplier),
+  );
+  const [weightGainPercentageInput, setWeightGainPercentageInput] = useState(
+    _numberToText(user.weightGainPercentage),
+  );
+  const [weightLossPercentageInput, setWeightLossPercentageInput] = useState(
+    _numberToText(user.weightLossPercentage),
+  );
+  const [protMultiplierInput, setProtMultiplierInput] = useState(
+    _numberToText(user.protMultiplier),
+  );
+  const [lipMultiplierInput, setLipMultiplierInput] = useState(_numberToText(user.lipMultiplier));
+
+  useEffect(() => {
+    user.setWeightKg(_textToNumber(weightInput));
+  }, [user, weightInput]);
+
+  useEffect(() => {
+    user.setFatPercentage(_textToNumber(fatPercentageInput));
+  }, [user, fatPercentageInput]);
+
+  useEffect(() => {
+    user.setActivityMultiplier(_textToNumber(activityMultiplierInput));
+  }, [user, activityMultiplierInput]);
+
+  useEffect(() => {
+    user.setWeightGainPercentage(_textToNumber(weightGainPercentageInput));
+  }, [user, weightGainPercentageInput]);
+
+  useEffect(() => {
+    user.setWeightLossPercentage(_textToNumber(weightLossPercentageInput));
+  }, [user, weightLossPercentageInput]);
+
+  useEffect(() => {
+    user.setProtMultiplier(_textToNumber(protMultiplierInput));
+  }, [user, protMultiplierInput]);
+
+  useEffect(() => {
+    console.log('setting lipMultiplier to ' + _textToNumber(lipMultiplierInput));
+    user.setLipMultiplier(_textToNumber(lipMultiplierInput));
+  }, [user, lipMultiplierInput]);
+
+  console.log('rerendering ProfileScreen');
+  console.log('user lipMultiplier: ' + user.lipMultiplier);
+
   return (
     <View>
       <View>
         <NumberInput
           label="Poids"
           unit="Kg"
-          value={_numberToText(user.weightKg)}
-          onChangeText={(text: string) => user.setWeightKg(_textToNumber(text))}
+          value={weightInput}
+          onChangeText={(text: string) => setWeightInput(text)}
         />
         <NumberInput
           label="Taux de graisse"
           unit="%"
-          value={_numberToText(user.fatPercentage)}
-          onChangeText={(text: string) => user.setFatPercentage(_textToNumber(text))}
+          value={fatPercentageInput}
+          onChangeText={(text: string) => setFatPercentageInput(text)}
         />
         <NumberInput
           label="Multiplicateur d'activité"
-          value={_numberToText(user.activityMultiplier)}
-          onChangeText={(text: string) => user.setActivityMultiplier(_textToNumber(text))}
+          value={activityMultiplierInput}
+          onChangeText={(text: string) => setActivityMultiplierInput(text)}
         />
         <NumberInput
           label="Objectif prise de masse"
           unit="%"
-          value={_numberToText(user.weightGainPercentage)}
-          onChangeText={(text: string) => user.setWeightGainPercentage(_textToNumber(text))}
+          value={weightGainPercentageInput}
+          onChangeText={(text: string) => setWeightGainPercentageInput(text)}
         />
         <NumberInput
           label="Objectif sèche"
           unit="%"
-          value={_numberToText(user.weightLossPercentage)}
-          onChangeText={(text: string) => user.setWeightLossPercentage(_textToNumber(text))}
+          value={weightLossPercentageInput}
+          onChangeText={(text: string) => setWeightLossPercentageInput(text)}
         />
         <NumberInput
           label="Coefficient Protéines"
-          value={_numberToText(user.protMultiplier)}
-          onChangeText={(text: string) => user.setProtMultiplier(_textToNumber(text))}
+          value={protMultiplierInput}
+          onChangeText={(text: string) => setProtMultiplierInput(text)}
         />
         <NumberInput
           label="Coefficient Lipides"
-          value={_numberToText(user.lipMultiplier)}
-          onChangeText={(text: string) => user.setLipMultiplier(_textToNumber(text))}
+          value={lipMultiplierInput}
+          onChangeText={(text: string) => setLipMultiplierInput(text)}
         />
       </View>
       <View>
